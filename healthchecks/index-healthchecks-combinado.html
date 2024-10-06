@@ -1,0 +1,364 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Backups - status</title>
+<style type="text/css">
+.content {
+  max-width: 500px;
+  margin: auto;
+}
+.auto-style2 {
+	border-width: 0px;
+}
+.auto-style6 {
+	border-left: 1px solid #C0C0C0;
+	border-right: 1px solid #C0C0C0;
+	border-top: 1px solid #C0C0C0;
+	border-bottom: 1px solid #C0C0C0;
+}
+</style>
+
+<link rel="icon" type="image/x-icon" href="https://healthchecks.io/static/img/favicon.png">
+<!-- <link rel="icon" type="image/x-icon" href="https://towerbr.bitbucket.io/healthchecks/favicon.png"> -->
+
+
+
+
+   <meta charset="utf-8">
+    <title>Healthchecks.io</title>
+    <style>
+        /* Colors, dark theme */
+
+        .theme-dark {
+            background: #000;
+            color: #FFF;
+        }
+
+        .theme-dark #panel > div {
+            background: #AAA;
+            color: #000;
+        }
+
+        .theme-dark #panel > div.status-up {
+            color: #000;
+            background: #e6ffe6;
+        }
+
+        .theme-dark #panel > div.status-grace {
+            color: #000;
+            background: #FFB300;
+        }
+
+        .theme-dark #panel > div.status-down {
+            color: #000;
+            background: #ff3929;
+        }
+
+        /* Colors, light theme */
+
+        .theme-light {
+            background: #FFF;
+            color: #333;
+        }
+
+        .theme-light #panel > div {
+            color: #000;
+            background: #FFF;
+            border: 2px solid #DDD;
+        }
+
+
+        .theme-light #panel > div.status-grace {
+            color: #000;
+            background: #FFAB00;
+            border: none;
+        }
+
+        .theme-light #panel > div.status-down {
+            color: #FFF;
+            background: #D81818;
+            border: none;
+        }
+
+
+        /* Layout and font */
+
+        html, body {
+            font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+            height: 100%;
+            margin: 0;
+        }
+
+        #panel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 8px;
+            padding: 8px;
+        }
+
+        #panel > h1 {
+            grid-column-start: 1;
+            grid-column-end: -1;
+            margin: 12px 0;
+            font-size: 20px;
+        }
+
+        #panel > div {
+            padding: 8px 8px 32px 8px;
+            font-size: 15px;
+			font-weight: bold;
+            position: relative;
+        }
+
+        #panel > div .name {
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        #panel > div .lp {
+            position: absolute;
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        #panel > div .lp {
+            bottom: 8px;
+            left: 8px;
+        }
+
+        .check-template {
+            display: none;
+        }
+    </style>
+	
+	<link rel="icon" type="image/png" href="/healthchecks/favicon.png">
+	
+	
+	
+	
+
+
+
+</head>
+
+<!--     <body>    quando foi criado o "combinado" -->
+
+<body class="theme-dark">
+
+<!--<div class="content">-->
+
+<br><br>
+
+<!--
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;white-space:nowrap;margin-left:auto;margin-right:auto;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-5l0h{background-color:#e6e6e6;text-align:left;vertical-align:top}
+.tg .tg-5qfb{background-color:#ffce93;font-weight:bold;text-align:center;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+-->
+
+<style>
+
+table, th, td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  font-family: Arial;
+  font-size: 14px;
+  word-break:normal;
+  padding:10px;
+}
+
+table.center {
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+</style>
+
+<style type="text/css">
+
+.tg-grey{background-color:#e6e6e6;}
+
+</style>
+
+<!-- <table class="tg" > -->
+<table class="center">
+
+<tbody>
+  <tr>
+    <td class="tg-0lax">Drives pessoais</td>
+    <td class="tg-0lax"><img src="https://healthchecks.io/badge/663d61ab-3dd0-4e0c-83d7-f89dbe9d0463/wpsK8PUv-2/dplc--gdrv-lgtrrs--storj--backup.svg" style="float: right"> <br> <br> 
+						<img src="https://healthchecks.io/badge/663d61ab-3dd0-4e0c-83d7-f89dbe9d0463/nZJb5Hhg-2/dplc--gdrv-lgtrrsarqvs--storj--backup.svg" style="float: right"> <br> <br> 
+						<img src="https://healthchecks.io/badge/663d61ab-3dd0-4e0c-83d7-f89dbe9d0463/syukSgT_-2/dplc-ondrv-lzmd-b2-backup.svg" style="float: right"> <br> <br>
+						<img src="https://healthchecks.io/badge/663d61ab-3dd0-4e0c-83d7-f89dbe9d0463/gJVw2Mxn-2/rcln--gdrv-lgtrrsmd--storj--copy.svg" style="float: right"> <br> <br> 
+						<img src="https://healthchecks.io/badge/663d61ab-3dd0-4e0c-83d7-f89dbe9d0463/NvQC9-zu-2/dplc-gdrv-cond-b2-backup.svg" style="float: right">	</a> </td>		
+						
+    <td class="tg-0lax"><img src="https://healthchecks.io/badge/663d61ab-3dd0-4e0c-83d7-f89dbe9d0463/i-NvyQqc-2/dplc--gdrv-lgtrrs--storj--check.svg" style="float: right"> <br> <br> 
+						<img src="https://healthchecks.io/badge/663d61ab-3dd0-4e0c-83d7-f89dbe9d0463/OsIWKPPi-2/dplc--gdrv-lgtrrsarqvs--storj--check.svg" style="float: right"> <br> <br> 
+						<img src="https://healthchecks.io/badge/4d3689cf-10e1-44fd-822c-b7c5eb33158b/grI-0RNF-2/dplc-ondrv-lzmd-b2-check.svg" style="float: right"> <br> <br> 						
+						<img src="https://healthchecks.io/badge/4d3689cf-10e1-44fd-822c-b7c5eb33158b/oIdARDjZ-2/rcln--gdrv-lgtrrsmd--storj--check.svg" style="float: right"> <br> <br> 				
+						<img src="https://healthchecks.io/badge/4d3689cf-10e1-44fd-822c-b7c5eb33158b/o7pmZAuP-2/dplc-gdrv-cond-b2-check.svg" style="float: right"> </a> </td>
+    <td class="tg-0lax"></td>
+  </tr> 
+  <tr>
+    <td class="tg-0lax">Drive Renata</td>
+    <td class="tg-0lax"><img src="https://healthchecks.io/badge/663d61ab-3dd0-4e0c-83d7-f89dbe9d0463/7gCnuHwc-2/dplc-gdrv-rnt-b2-backup.svg" style="float: right"> </a> </td>
+    <td class="tg-0lax"><img src="https://healthchecks.io/badge/4d3689cf-10e1-44fd-822c-b7c5eb33158b/jHSfuyZG-2/dplc-gdrv-rnt-b2-check.svg" style="float: right"> </a> </td>
+    <td class="tg-0lax"></td>
+  </tr>    
+  <tr>
+    <td class="tg-0lax">GDrive SW</td>
+    <td class="tg-0lax"><img src="https://healthchecks.io/badge/663d61ab-3dd0-4e0c-83d7-f89dbe9d0463/J21cK-DW-2/dplc-gdrv-stwr-mydrive-dospaces-backup.svg" style="float: right"> <br> <br> 
+						<img src="https://healthchecks.io/badge/663d61ab-3dd0-4e0c-83d7-f89dbe9d0463/avcAV-7N-2/dplc-gdrv-stwr-shared-acdmy-dospaces-backup.svg" style="float: right"> <br> <br> 
+						<img src="https://healthchecks.io/badge/663d61ab-3dd0-4e0c-83d7-f89dbe9d0463/iYbGRhXa-2/dplc-gdrv-stwr-shared-tmofppl-dospaces-backup.svg" style="float: right"> <br> <br>
+						<img src="https://healthchecks.io/badge/663d61ab-3dd0-4e0c-83d7-f89dbe9d0463/KyMSx__u-2/dplc-gdrv-stwr-shared-drtr-dospaces-backup.svg" style="float: right"> </a> </td>
+						
+    <td class="tg-0lax"><img src="https://healthchecks.io/badge/4d3689cf-10e1-44fd-822c-b7c5eb33158b/TY8BY7gh-2/dplc-gdrv-stwr-mydrive-dospaces-check.svg" style="float: right"> <br> <br> 
+						<img src="https://healthchecks.io/badge/4d3689cf-10e1-44fd-822c-b7c5eb33158b/lOD1bsff-2/dplc-gdrv-stwr-shared-acdmy-dospaces-check.svg" style="float: right"> <br> <br> 
+						<img src="https://healthchecks.io/badge/4d3689cf-10e1-44fd-822c-b7c5eb33158b/cY1p8Uea-2/dplc-gdrv-stwr-shared-tmofppl-dospaces-check.svg" style="float: right"> <br> <br> 
+						<img src="https://healthchecks.io/badge/4d3689cf-10e1-44fd-822c-b7c5eb33158b/DeSAC1ji-2/dplc-gdrv-stwr-shared-drtr-dospaces-check.svg" style="float: right"> </a> </td>						
+    <td class="tg-0lax"></td>
+  </tr>   
+  <tr>
+    <td class="tg-0lax">Evernote</td>
+    <td class="tg-0lax"><img src="https://healthchecks.io/badge/fea63c45-efd4-455c-9655-a83c3690329c/eSmCB7IV-2/evn-en_backup.db.svg" style="float: right"> <br> <br> 
+						<img src="https://healthchecks.io/badge/fea63c45-efd4-455c-9655-a83c3690329c/_TiVqKYv-2/evn-notebooks.svg" style="float: right"> <br> <br> 
+						<img src="https://healthchecks.io/badge/fea63c45-efd4-455c-9655-a83c3690329c/_w_J4qT0-2/evn-single-notes.svg" style="float: right">	</a> </td>
+    <td class="tg-0lax"><img src="https://healthchecks.io/badge/fea63c45-efd4-455c-9655-a83c3690329c/9XAepwwb-2/rcln-sync.svg" style="float: right"></a></td>
+    <td class="tg-0lax"><img src="https://healthchecks.io/badge/fea63c45-efd4-455c-9655-a83c3690329c/75jI0G5L-2/dplc--evernote-single-notes--storj--backup.svg" style="float: right"> <br> <br>
+						<img src="https://healthchecks.io/badge/fea63c45-efd4-455c-9655-a83c3690329c/9GH1Tdv--2/dplc--evernote-single-notes--storj--check.svg" style="float: right"> </a> </td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Asana</td>
+    <td class="tg-0lax"><img src="https://healthchecks.io/badge/6f25c1a5-1014-4394-bed0-72dd537100f0/XVPOmDpP-2/java-asn.svg" style="float: right"></a></td></td>
+    <td class="tg-0lax"><img src="https://healthchecks.io/badge/6f25c1a5-1014-4394-bed0-72dd537100f0/Ug20F3Gu-2/rcln--asn--storj-lgtrrs-aux--copy.svg" style="float: right"></a></td></td>
+    <td class="tg-0lax"><img src="https://healthchecks.io/badge/6f25c1a5-1014-4394-bed0-72dd537100f0/a58ErsmW-2/dplc-asn-storj-backup.svg" style="float: right"></a></td></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">code-gitprotect.io (outros)</td>
+    <td class="tg-0lax"><img src="https://healthchecks.io/badge/11611d36-a2bc-47ec-832f-4eadafecd48d/Y2ARKTNk-2/code-GitProtect.io.svg" style="float: right"></a></td></td>
+    <td class="tg-5l0h" colspan="2"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">e-mails</td>
+    <td class="tg-0lax">lgtorresarquivos</td>
+    <td class="tg-0lax">condominio</td>
+    <td class="tg-0lax">siteware</td>	
+  </tr>
+  <tr>
+    <td class="tg-0lax">logs</td>
+    <td class="tg-0lax"><img src="https://healthchecks.io/badge/9adfc353-183a-4259-a68e-62d6525dfdf3/PwAqRqHB-2/rcln-bkp4-logs-storj-copy.svg" style="float: right"> <br> <br>
+					    <img src="https://healthchecks.io/badge/9adfc353-183a-4259-a68e-62d6525dfdf3/uJaDHnXD-2/rcln-gyb4-logs-storj-copy.svg" style="float: right"> </a> </td>
+    <td class="tg-0lax"></td>
+  </tr>
+</tbody>
+</table>
+
+
+<!--</div>-->
+
+
+
+
+    <div id="panel">
+		<h1 data-readonly-key="PUckHNrPUUpffXggOvua85tAjHjKUgYk">GDrives-backups</h1>
+		<h1 data-readonly-key="HiB_u0lCYPgZbPd5bLfRtaAJY6Sk3qcU">GDrives-checks</h1>
+		<h1 data-readonly-key="eT5z_Xjd6qMS3OOy9C1qgWAvAeXGrqPe">cópias-AWS</h1>		
+		<h1 data-readonly-key="MVIFZmG3Tocb-83L6HygdywC4J4OVxiF">Evernote</h1>
+		<h1 data-readonly-key="S7kT_rNlZ_1YWzTJI1IHUTtRDgawOxtP">Asana</h1>		
+		<h1 data-readonly-key="fEWBW_UFb5kp8_HW3MvmdNw4TqY5tQuD">code</h1>
+		<h1 data-readonly-key="vOnTlcsB7BXqvvX4qLyXCWUOnljjGyFU">e-mails</h1>		
+		<h1 data-readonly-key="pwLB_JpybEvgy1RmmTGNU1tWznHARqhy">logs</h1>		
+
+    </div>
+
+    <div class="check-template">
+        <div class="name"></div>
+        <div class="lp"></div>
+    </div>
+
+    <script>
+        function fetch(key, callback) {
+            var httpRequest = new XMLHttpRequest();
+            httpRequest.onreadystatechange = function() {
+                if (httpRequest.readyState === 4) {
+                    if (httpRequest.status === 200) {
+                        callback(JSON.parse(httpRequest.responseText));
+                    }
+                }
+            };
+            httpRequest.open("GET", "https://healthchecks.io/api/v1/checks/");
+            httpRequest.setRequestHeader("X-Api-Key", key);
+            httpRequest.send();
+        }
+
+        function timeSince(date) {
+            var v = Math.floor((new Date() - date) / 1000);
+
+            if (v < 60) { // v is seconds
+                return v + " second" + (v == 1 ? "" : "s");
+            }
+
+            v = Math.floor(v / 60); // v is now minutes
+            if (v < 60) {
+                return v + " minute" + (v == 1 ? "" : "s");
+            }
+
+            v = Math.floor(v / 60); // v is now hours
+            if (v < 24) {
+                return v + " hour" + (v == 1 ? "" : "s");
+            }
+
+            v = Math.floor(v / 24); // v is now days
+            return v + " day" + (v == 1 ? "" : "s");
+         };
+
+        var template = document.querySelector(".check-template");
+        function updatePanel(node) {
+            fetch(node.dataset.readonlyKey, function(doc) {
+                var tag = node.dataset.readonlyKey.substr(0, 6);
+
+                // Sort returned checks by name:
+                var sorted = doc.checks.sort(function(a, b) {
+                    return a.name.localeCompare(b.name)
+                });
+
+                var fragment = document.createDocumentFragment();
+                sorted.forEach(function(item) {
+                    var div = template.cloneNode(true);
+                    div.setAttribute("class", tag + " status-" + item.status);
+                    div.querySelector(".name").textContent = item.name || "unnamed";
+                    if (item.last_ping) {
+                        var s = timeSince(Date.parse(item.last_ping)) + " ago";
+                        div.querySelector(".lp").textContent = s;
+                    }
+                    fragment.appendChild(div);
+                });
+
+                document.querySelectorAll('.' + tag).forEach(function(element) {
+                    element.remove();
+                });
+
+                node.parentNode.insertBefore(fragment, node.nextSibling);
+            });
+        }
+
+        document.querySelectorAll("h1").forEach(updatePanel);
+        setInterval(function() {
+            document.querySelectorAll("h1").forEach(updatePanel);
+        }, 5000);
+
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>
+

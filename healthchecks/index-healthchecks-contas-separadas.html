@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Healthchecks.io</title>
+    <style>
+        /* Colors, dark theme */
+
+        .theme-dark {
+            background: #000;
+            color: #FFF;
+        }
+
+        .theme-dark #panel > div {
+            background: #AAA;
+            color: #000;
+        }
+
+        .theme-dark #panel > div.status-up {
+            color: #000;
+            background: #e6ffe6;
+        }
+
+        .theme-dark #panel > div.status-grace {
+            color: #000;
+            background: #FFB300;
+        }
+
+        .theme-dark #panel > div.status-down {
+            color: #000;
+            background: #ff3929;
+        }
+
+        /* Colors, light theme */
+
+        .theme-light {
+            background: #FFF;
+            color: #333;
+        }
+
+        .theme-light #panel > div {
+            color: #000;
+            background: #FFF;
+            border: 2px solid #DDD;
+        }
+
+
+        .theme-light #panel > div.status-grace {
+            color: #000;
+            background: #FFAB00;
+            border: none;
+        }
+
+        .theme-light #panel > div.status-down {
+            color: #FFF;
+            background: #D81818;
+            border: none;
+        }
+
+
+        /* Layout and font */
+
+        html, body {
+            font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+            height: 100%;
+            margin: 0;
+        }
+
+        #panel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 8px;
+            padding: 8px;
+        }
+
+        #panel > h1 {
+            grid-column-start: 1;
+            grid-column-end: -1;
+            margin: 12px 0;
+            font-size: 20px;
+        }
+
+        #panel > div {
+            padding: 8px 8px 32px 8px;
+            font-size: 15px;
+			font-weight: bold;
+            position: relative;
+        }
+
+        #panel > div .name {
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        #panel > div .lp {
+            position: absolute;
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        #panel > div .lp {
+            bottom: 8px;
+            left: 8px;
+        }
+
+        .check-template {
+            display: none;
+        }
+    </style>
+</head>
+<body class="theme-dark">
+    <div id="panel">
+        <h1 data-readonly-key="zI3tsz6nYbKd2mV__q0Bm7Oa_vy_mLc3">Backup diário H0T5F1K</h1>
+		<!-- <h1 data-readonly-key="ScY_KGkAnRep3O6F_WH4jEd00nE7gDga">Backup diário NOTE7</h1> -->
+
+        <!-- <h1 data-readonly-key="GQu5k4AV7RfJ-rDg5b4mVU1MhI7fCwKR">Backup banda larga</h1> -->
+		<h1 data-readonly-key="y8lcQ52QE-2EXB3ZRiBuBgHxJQZkfGBn">Backup banda larga H0T5F1K</h1>
+		
+		<!-- <h1 data-readonly-key="iS5Uxgt--7DGb1V325YgeisyOdOtOIZZ">Backup HD externo</h1> -->
+		<h1 data-readonly-key="I8Fj0HfGG-FJn7ysyLtiap4duYF-7Xqs">Backup HD externo H0T5F1K</h1>
+		
+		<h1 data-readonly-key="Gb8Q-OO4XawDI2zXyXrLjhbQDOvHUvlY">Backups Renata</h1>
+
+    </div>
+
+    <div class="check-template">
+        <div class="name"></div>
+        <div class="lp"></div>
+    </div>
+
+    <script>
+        function fetch(key, callback) {
+            var httpRequest = new XMLHttpRequest();
+            httpRequest.onreadystatechange = function() {
+                if (httpRequest.readyState === 4) {
+                    if (httpRequest.status === 200) {
+                        callback(JSON.parse(httpRequest.responseText));
+                    }
+                }
+            };
+            httpRequest.open("GET", "https://healthchecks.io/api/v1/checks/");
+            httpRequest.setRequestHeader("X-Api-Key", key);
+            httpRequest.send();
+        }
+
+        function timeSince(date) {
+            var v = Math.floor((new Date() - date) / 1000);
+
+            if (v < 60) { // v is seconds
+                return v + " second" + (v == 1 ? "" : "s");
+            }
+
+            v = Math.floor(v / 60); // v is now minutes
+            if (v < 60) {
+                return v + " minute" + (v == 1 ? "" : "s");
+            }
+
+            v = Math.floor(v / 60); // v is now hours
+            if (v < 24) {
+                return v + " hour" + (v == 1 ? "" : "s");
+            }
+
+            v = Math.floor(v / 24); // v is now days
+            return v + " day" + (v == 1 ? "" : "s");
+         };
+
+        var template = document.querySelector(".check-template");
+        function updatePanel(node) {
+            fetch(node.dataset.readonlyKey, function(doc) {
+                var tag = node.dataset.readonlyKey.substr(0, 6);
+
+                // Sort returned checks by name:
+                var sorted = doc.checks.sort(function(a, b) {
+                    return a.name.localeCompare(b.name)
+                });
+
+                var fragment = document.createDocumentFragment();
+                sorted.forEach(function(item) {
+                    var div = template.cloneNode(true);
+                    div.setAttribute("class", tag + " status-" + item.status);
+                    div.querySelector(".name").textContent = item.name || "unnamed";
+                    if (item.last_ping) {
+                        var s = timeSince(Date.parse(item.last_ping)) + " ago";
+                        div.querySelector(".lp").textContent = s;
+                    }
+                    fragment.appendChild(div);
+                });
+
+                document.querySelectorAll('.' + tag).forEach(function(element) {
+                    element.remove();
+                });
+
+                node.parentNode.insertBefore(fragment, node.nextSibling);
+            });
+        }
+
+        document.querySelectorAll("h1").forEach(updatePanel);
+        setInterval(function() {
+            document.querySelectorAll("h1").forEach(updatePanel);
+        }, 5000);
+
+    </script>
+</body>
+</html>
